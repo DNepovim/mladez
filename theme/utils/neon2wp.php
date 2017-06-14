@@ -1,6 +1,6 @@
 <?php
 
-$filenames = [ 'post_types', 'settings', 'taxonomies', 'meta_fields', 'hide_editor' ];
+$filenames = [ 'post_types', 'settings', 'taxonomies', 'meta_fields', 'hide_editor', 'navigations' ];
 
 if(!defined('NEON_WP_DIR')) {
 	define('NEON_WP_DIR', __DIR__ . '/..');
@@ -232,6 +232,19 @@ foreach($filenames as $filename) {
 							}
 					}
 			});
+		}
+	}
+
+	if ($filename === 'navigations') {
+
+		add_theme_support('menus');
+		$View->navigations = [];
+
+		foreach ($res as $location => $args) {
+			register_nav_menu($location, $args['title']);
+			$args['theme_location'] = $location;
+			$args['echo'] = false;
+			$View->navigations[$location] = wp_nav_menu($args);
 		}
 	}
 }
