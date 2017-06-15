@@ -1,5 +1,8 @@
 main-nav:
 	title: 'Hlavní navigace'
-	container: nav
-	container_class: main-nav
-	container_id: main-nav
+	views:
+		header:
+			menu_class: main-nav-list
+			container: nav
+			container_class: main-nav
+			container_id: main-nav

@@ -240,11 +240,14 @@ foreach($filenames as $filename) {
 		add_theme_support('menus');
 		$View->navigations = [];
 
-		foreach ($res as $location => $args) {
-			register_nav_menu($location, $args['title']);
-			$args['theme_location'] = $location;
-			$args['echo'] = false;
-			$View->navigations[$location] = wp_nav_menu($args);
+		foreach ($res as $location => $param) {
+			register_nav_menu($location, $param['title']);
+
+			foreach ($param['views'] as $view => $args) {
+				$args['theme_location'] = $location;
+				$args['echo'] = false;
+				$View->navigations[$location][$view] = wp_nav_menu($args);
+			}
 		}
 	}
 }
