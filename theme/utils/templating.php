@@ -57,3 +57,13 @@ MangoFilters::$set['wp_contexcerpt'] = function($id, $length = 55, $more = '&hel
 
 	return safe($output);
 };
+
+MangoFilters::$set['czday'] = function($date) {
+    static $days = array('neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota');
+	return  $days[date('N', strtotime($date))];
+};
+
+MangoFilters::$set['czmonth'] = function($date) {
+    static $months = [1 => 'leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'];
+	return  $months[date('n', strtotime($date))];
+};
