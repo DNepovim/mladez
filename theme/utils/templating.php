@@ -29,3 +29,31 @@ MangoFilters::$set['czk'] = function($number, $decimal = 2){
 
 	return $formatted . (!$decimal ? ',-' : '') . "\xC2\xA0Kč";
 };
+
+MangoFilters::$set['wp_author'] = function($id) {
+	$post = lazy_post($id);
+	if(!$post) return $id;
+	$user = get_user_by('id', $post->post_author);
+
+	return safe($user->display_name);
+};
+
+MangoFilters::$set['wp_contexcerpt'] = function($id, $length = 55, $more = '&hellip;') {
+	$post = lazy_post($id);
+	if(!$post) return $id;
+
+	if (!empty($post->post_excerpt)) {
+		$output = $post->post_excerpt;
+	} else {
+
+		$output = strip_shortcodes($post->post_content);
+
+		$output = apply_filters( 'the_content', $output );
+		$output = str_replace(']]>', ']]&gt;', $output);
+
+	}
+
+	$output = wp_trim_words( $output, $length, $more );
+
+	return safe($output);
+};
