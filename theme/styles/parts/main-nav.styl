@@ -1,0 +1,32 @@
+.main-nav
+	margin 1rem 0
+
+	&-container
+		list-style none
+
+	&-link
+		position relative
+		left 0
+		color $text-color-light
+		text-decoration none
+		transition left 300ms, color 300ms
+
+		&:after
+			content ''
+			display block
+			absolute left 0 bottom 0
+			size 0
+			background-color $text-color-light
+			transition width 400ms, height 300ms
+
+		&:hover
+			left 0.5em
+			color $text-color
+
+			&:after
+				width 100%
+				height 2px
+
+
+
+

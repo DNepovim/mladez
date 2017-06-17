@@ -1,0 +1,72 @@
+.event
+	background-color $c-blank
+	border-radius $radius
+	border 1px $c-border solid
+	margin 1rem 0
+	overflow hidden
+	border 1px solid $c-shadow
+	box-shadow 0 0 1px $c-shadow
+	transition box-shadow 500ms
+
+	&:hover
+		box-shadow 0 0 15px #ddd
+
+	&:hover &
+		&-title
+			text-decoration underline
+			text-decoration-skip ink
+
+	&-thumb
+		size 100% 250px
+		background-color alpha($c-main, 10%)
+		margin 0
+
+		@extend $background-image
+
+		&-img
+			width 100%
+			height auto
+
+	&-date
+		color $c-second
+
+	&-box
+		display flex
+		padding 1rem 1.6rem 0.3rem
+
+		@extend $clearfix
+
+	&-title
+		display inline-block
+		position relative
+		color $c-main
+		margin 0 0 0.1em
+
+	&-place
+		color $text-color
+		margin 0
+		font-weight normal
+		font-size 1rem
+
+	&-tags
+		font-size 0.8rem
+		margin-top 0.2rem
+
+		&-item
+			color gray
+			margin-right 0.5em
+
+
+	&-date
+		float left
+		text-align center
+		margin-right 1.6rem
+		color $text-color
+		transition color 300ms
+
+
+		&-day
+			display block
+			font-size 2.5rem
+			font-weight bold
+			line-height 0.8em

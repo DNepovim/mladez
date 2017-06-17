@@ -67,3 +67,12 @@ MangoFilters::$set['czmonth'] = function($date) {
     static $months = [1 => 'leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'];
 	return  $months[date('n', strtotime($date))];
 };
+
+MangoFilters::$set['background'] = function($id, $size = 'thumbanil') {
+	if (is_object($id)) {
+		$url = get_thumbnail_url($id->ID, $size);
+	} elseif (is_integer($id)) {
+		$url = get_image_url($id, $size);
+	}
+	return 'style="background-image: url(' . $url . ')"';
+};

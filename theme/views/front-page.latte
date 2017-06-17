@@ -1,16 +1,40 @@
 {extends @layout.latte}
 
 {block #content}
-<h1>Welcome to MangoPress</h1>
-<p>This is a front-page template located in <code>theme/views/front-page.latte</code>.</p>
 
-{$Forms[contact]}
+<main class="yeah-7">
+	<article class="event" n:foreach="$events as $event">
+		<a href="{$event|wp_permalink}">
+			<figure class="event-thumb" {$event|background:s|noescape} n:if="has_post_thumbnail($event)"></figure>
+			<div class="event-box">
+				<div class="event-date">
+					<span class="event-date-day">{$event|wp_meta:start|date:j}.</span>
+					<span class="event-date-month">{$event|wp_meta:start|czmonth}</span>
+				</div>
+				<div class="event-content">
+					<h1 class="event-title">{$event|wp_title}</h1>
+					<h2 class="event-place">{$event|wp_meta:place}</h2>
+					<div class="event-tags">
+						<span class="event-tags-item">#přespání</span>
+						<span class="event-tags-item">#seminář</span>
+						<span class="event-tags-item">#srandabude</span>
+					</div>
+				</div>
+			</div>
+		</a>
+	</article>
+</main>
+<aside class="yeah-5 sidebar">
+	<section class="sidebar-section news">
+		<h1 class="news-title title view-second">Novinky</h1>
+		<article class="news-item new" n:foreach="$news as $new">
+			<figure class="new-thumb" {$new|background|noescape}></figure>
+			<div class="new-content">
+				<h1 class="new-title title view-third">{$new|wp_title}</h1>
+				<p class="new-date">{$new|wp_date:j}.&nbsp;{$new|wp_date:Y-m-d|czmonth}</p>
+			</div>
+		</article>
+	</section>
+</aside>
 
-{each}
-<article class="post">
-	<h2 class="post-title"><a href="{$Post|wp_permalink}">{$Post|wp_title}</a></h2>
-	<div class="post-content">
-		{$Post|wp_content}
-	</div>
-</article>
-{/each}
+<aside class="yeah-4"></aside>

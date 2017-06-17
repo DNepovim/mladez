@@ -1,0 +1,26 @@
+.new
+	display flex
+	min-height 100px
+	margin 0 0 10px
+
+	&-thumb
+		flex 1
+		margin  0
+		background-color rgba(255, 255, 255, 0.4)
+
+		@extend $background-image
+
+	&-content
+		flex 3
+		position relative
+		background-color $c-blank
+		padding 0.7rem 1rem 1.7rem
+
+	&-title
+		line-height 1.2em
+
+	&-date
+		absolute bottom 0.5rem right 1rem
+		font-size 0.8rem
+		color $text-color-light
+		margin 0

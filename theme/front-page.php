@@ -1,9 +1,9 @@
 <?php
+/* Template Name: Homepage */
 
-if(isset($_GET['styleguide'])) {
-	view('styleguide');
-	exit;
-}
 
-// latte file has same name as this file
-view([ 'greeting' => 'Hello' ]);
+$events = get_posts(array('post_type' => 'event', 'numberposts' => 5, 'order' => 'ASC'));
+
+$news = get_posts(array('post_type' => 'new', 'numberposts' => 3, 'order' => 'ASC'));
+
+view(['events' => $events, 'news' => $news]);
