@@ -1,0 +1,53 @@
+#
+# Requires MetaBox plugin: http://metabox.io/
+#
+
+register:
+	data:
+		title: Podrobnosti
+		context: side
+		post_types:
+			- event
+		fields:
+			start:
+				name: Začátek
+				type: date
+			end:
+				name: Konec
+				type: date
+				desc: 'Jeli akce jednodenní, nech prázdné.'
+			place:
+				name: Místo
+				type: text
+
+	contacts:
+		title: Kontakty
+		context: side
+		post_types:
+			- event
+		fields:
+			web:
+				name: Web
+				type: url
+			fb_event:
+				name: 'Facebook událost'
+				type: url
+			register_link:
+				name: 'Odkaz na přihlašování'
+				type: url
+
+	taxonomy:
+		title:
+		context: side
+		post_types:
+			- event
+		fields:
+			web:
+				name: Web
+				type: url
+			fb_event:
+				name: 'Facebook událost'
+				type: url
+
+
+

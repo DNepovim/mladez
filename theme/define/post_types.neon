@@ -1,0 +1,49 @@
+defaults:
+	public: true
+	has_archive: false
+	exclude_from_search: true
+	publicly_queryable: true
+	show_ui: true
+	show_in_menu: true
+	supports:
+		- title
+		- editor
+		- author
+		- thumbnail
+		- excerpt
+		- revisions
+		- page-attributes
+
+remove:
+	- comments
+	- posts
+
+register:
+	unit:
+		label: Jednotky
+		menu_icon: dashicons-groups
+		supports:
+			- title
+			- thumbnail
+		rewrite:
+			slug: kmeny
+
+	event:
+		label: Akce
+		menu_icon: dashicons-calendar
+		supports:
+			- title
+			- thumbnail
+			- editor
+		rewrite:
+			slug: akce
+
+	new:
+		label: Novinky
+		menu_icon: dashicons-admin-post
+		supports:
+			- title
+			- thumbnail
+			- editor
+		rewrite:
+			slug: novinky
