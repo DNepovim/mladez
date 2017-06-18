@@ -3,26 +3,42 @@
 {block #content}
 
 <main class="yeah-7">
-	<article class="event" n:foreach="$events as $event">
-		<a href="{$event|wp_permalink}">
-			<figure class="event-thumb" {$event|background:s|noescape} n:if="has_post_thumbnail($event)"></figure>
-			<div class="event-box">
-				<div class="event-date">
-					<span class="event-date-day">{$event|wp_meta:start|date:j}.</span>
-					<span class="event-date-month">{$event|wp_meta:start|czmonth}</span>
-				</div>
-				<div class="event-content">
-					<h1 class="event-title">{$event|wp_title}</h1>
-					<h2 class="event-place">{$event|wp_meta:place}</h2>
-					<div class="event-tags">
-						<span class="event-tags-item">#přespání</span>
-						<span class="event-tags-item">#seminář</span>
-						<span class="event-tags-item">#srandabude</span>
+	{if !empty($collected_events)}
+		{foreach $collected_events as $year => $months}
+			<div class="event-separator" n:if="!$iterator->isFirst()"><span>{$year}</span></div>
+			{foreach $months as $month => $days}
+				<div class="event-separator" n:if="!$iterator->isFirst()"><span>{php echo MONTHS[$month]}</span></div>
+				{foreach $days as $events}
+					<div class="event-day">
+						<article n:class="event, $iterator->isFirst() ? view-first, $iterator->isLast() ? view-last" n:foreach="$events as $event">
+							<a class="event-link" href="{$event|wp_permalink}">
+								<figure class="event-thumb" {$event|background:s|noescape} n:if="has_post_thumbnail($event)"></figure>
+								<div class="event-box">
+									<div n:class="event-date, !$iterator->isFirst() ? view-light">
+										<span class="event-date-day">{$event|wp_meta:start|date:j}.</span>
+										<span class="event-date-month">{$event|wp_meta:start|czmonth}</span>
+									</div>
+									<div class="event-content">
+										<h1 class="event-title">{$event|wp_title}</h1>
+										<h2 class="event-place">{$event|wp_meta:place}</h2>
+										<div class="event-tags">
+											<span class="event-tags-item">#přespání</span>
+											<span class="event-tags-item">#seminář</span>
+											<span class="event-tags-item">#srandabude</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</article>
 					</div>
-				</div>
-			</div>
-		</a>
-	</article>
+				{/foreach}
+			{/foreach}
+		{/foreach}
+	{else}
+		<article class="empty-state">
+			<h1 class="title view-first">{php echo NO_EVENTS}</h1>
+		</article>
+	{/if}
 </main>
 <aside class="yeah-5 sidebar">
 	<section class="sidebar-section news" n:if="!empty($news)">
