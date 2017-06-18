@@ -36,8 +36,8 @@ register:
 				name: 'Odkaz na přihlašování'
 				type: url
 
-	taxonomy:
-		title:
+	more_info:
+		title: 'Více informací'
 		context: side
 		post_types:
 			- event
