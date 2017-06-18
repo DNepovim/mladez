@@ -25,7 +25,7 @@
 	</article>
 </main>
 <aside class="yeah-5 sidebar">
-	<section class="sidebar-section news">
+	<section class="sidebar-section news" n:if="!empty($news)">
 		<h1 class="news-title title view-second">Novinky</h1>
 		<article class="news-item new" n:foreach="$news as $new">
 			<figure class="new-thumb" {$new|background|noescape}></figure>
