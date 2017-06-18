@@ -6,9 +6,20 @@ $margin = 2px
 	background-color $c-blank
 	margin $margin 0
 	padding 0.2em 0.6em
+	transition background-color 200ms, color 100ms
 
 	@extend $box-shadow
 
 	&-container
 		margin-left ($margin * -1)
 		margin-right @margin-left
+
+	.view-color-second &
+		color $c-second
+
+		&:hover
+			color $c-blank
+			background-color $c-second
+			text-decoration underline
+
+

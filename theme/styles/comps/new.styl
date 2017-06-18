@@ -5,6 +5,14 @@
 
 	@extend $box-shadow
 
+	&:hover &
+		&-title
+			color $c-blank
+			text-decoration underline
+
+		&-date
+			color $c-blank
+
 	&-thumb
 		flex 1
 		margin  0
@@ -14,9 +22,11 @@
 
 	&-content
 		flex 3
+		colot $c-first
 		position relative
 		background-color $c-blank
 		padding 0.7rem 1rem 1.7rem
+		transition background-color 100ms, color 200ms
 
 	&-title
 		line-height 1.2em
@@ -26,3 +36,12 @@
 		font-size 0.8rem
 		color $text-color-light
 		margin 0
+		transition color 200ms
+
+	.view-color-first &
+		&-content
+			color $c-first
+
+		&:hover .new
+			&-content
+				background-color $c-first

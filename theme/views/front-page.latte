@@ -41,17 +41,17 @@
 	{/if}
 </main>
 <aside class="yeah-5 sidebar">
-	<section class="sidebar-section news" n:if="!empty($news)">
+	<section class="sidebar-section news view-color-first" n:if="!empty($news)">
 		<h1 class="news-title title view-second">Novinky</h1>
 		<article class="news-item new" n:foreach="$news as $new">
 			<figure class="new-thumb" {$new|background|noescape}></figure>
-			<div class="new-content">
+			<a href="{$new|wp_permalink}" class="new-content">
 				<h1 class="new-title title view-third">{$new|wp_title}</h1>
 				<p class="new-date">{$new|wp_date:j}.&nbsp;{$new|wp_date:Y-m-d|czmonth}</p>
-			</div>
+			</a>
 		</article>
 	</section>
-	<section class="sidebar-section units" n:if="!empty($units)">
+	<section class="sidebar-section units view-color-second" n:if="!empty($units)">
 		<h1 class="units-title title views-second">Seniorátní mládeže</h1>
 		<div class="label-container">
 			<a href="{$unit|wp_permalink}" class="units-item label" n:foreach="$units as $unit" n:ifcontent>{$unit|wp_title}</a>
