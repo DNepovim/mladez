@@ -57,4 +57,13 @@
 			<a href="{$unit|wp_permalink}" class="units-item label" n:foreach="$units as $unit" n:ifcontent>{$unit|wp_title}</a>
 		</div>
 	</section>
+	<section class="sidebar-section links view-color-third" n:if="!empty($links)">
+		<h1 class="units-title title views-second">Odkazy</h1>
+		<div class="label-container">
+			<a href="{$link[link]}" class="links-item link" n:foreach="$links as $link" n:ifcontent>
+			<h1 class="link-title" n:ifcontent>{$link[name]}</h1>
+			<p class="link-text">{$link[description]}</p>
+			</a>
+		</div>
+	</section>
 </aside>

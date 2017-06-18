@@ -62,5 +62,23 @@ register:
 				name: Facebook
 				type: url
 
-
-
+	related_links:
+		title: Odkazy
+		context: normal
+		templates:
+			- front-page
+		fields:
+			links:
+				type: group
+				clone: true
+				sort: true
+				fields:
+					name:
+						name: Název
+						type: text
+					description:
+						name: Popis
+						type: textarea
+					link:
+						name: Odkaz
+						type: url
