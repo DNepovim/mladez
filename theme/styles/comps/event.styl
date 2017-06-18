@@ -5,11 +5,8 @@
 	margin 1rem 0
 	overflow hidden
 	border 1px solid $c-shadow
-	box-shadow 0 0 1px $c-shadow
-	transition box-shadow 500ms
 
-	&:hover
-		box-shadow 0 0 15px #ddd
+	@extend $box-shadow
 
 	&:hover &
 		&-title

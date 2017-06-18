@@ -20,13 +20,13 @@ remove:
 
 register:
 	unit:
-		label: Jednotky
+		label: Senioráty
 		menu_icon: dashicons-groups
 		supports:
 			- title
 			- thumbnail
 		rewrite:
-			slug: kmeny
+			slug: senioraty
 
 	event:
 		label: Akce

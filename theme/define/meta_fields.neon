@@ -49,5 +49,18 @@ register:
 				name: 'Facebook událost'
 				type: url
 
+	u_contacts:
+		title: Kontakty
+		context: side
+		post_types:
+			- unit
+		fields:
+			web:
+				name: Web
+				type: url
+			fb:
+				name: Facebook
+				type: url
+
 
 

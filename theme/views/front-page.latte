@@ -35,6 +35,12 @@
 			</div>
 		</article>
 	</section>
+	<section class="sidebar-section units" n:if="!empty($units)">
+		<h1 class="units-title title views-second">Seniorátní mládeže</h1>
+		<div class="label-container">
+			<a href="{$unit|wp_permalink}" class="units-item label" n:foreach="$units as $unit" n:ifcontent>{$unit|wp_title}</a>
+		</div>
+	</section>
 </aside>
 
 <aside class="yeah-4"></aside>
