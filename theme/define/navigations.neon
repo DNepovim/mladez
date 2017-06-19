@@ -4,5 +4,5 @@ main-nav:
 		header:
 			menu_class: main-nav-list
 			container: nav
-			container_class: main-nav
-			container_id: main-nav
+			container_class: site-nav headline-item
+			container_id: site-nav
