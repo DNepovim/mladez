@@ -32,6 +32,12 @@
     "jquery",
     "lt-ie-9"
   ],
+  "sprites": [
+    {
+      "path": "theme/images/sources/*.svg",
+      "name": false
+    }
+  ],
   "watch": [
     "theme/**/*.{latte,php}"
   ],
