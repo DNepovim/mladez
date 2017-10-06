@@ -6,3 +6,8 @@ main-nav:
 			container: nav
 			container_class: site-nav headline-item
 			container_id: site-nav
+		footer:
+			menu_class: nav-list
+			container: nav
+			container_class: footer-items
+			container_id: footer-nav

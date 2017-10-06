@@ -4,7 +4,6 @@
 	border-top 1px $c-border solid
 	border-left @border-top
 	border-right @border-top
-	overflow hidden
 	transition box-shadow 500ms
 
 	&.view-first
@@ -13,15 +12,6 @@
 	&.view-last
 		border-radius 0 0 $radius $radius
 		border-bottom 1px $c-border solid
-
-	&:hover
-		z-index 10
-		box-shadow 0 0 5px #999
-
-	&:hover &
-		&-title
-			text-decoration underline
-			text-decoration-skip ink
 
 	&-day
 		margin 1rem 0
@@ -48,7 +38,7 @@
 		padding 0.3rem
 
 	&-thumb
-		size 100% 250px
+		size 100% auto
 		background-color alpha($c-main, 10%)
 		margin 0
 
@@ -62,7 +52,6 @@
 		color $c-second
 
 	&-box
-		display flex
 		padding 1rem 1.6rem 0.3rem
 
 		@extend $clearfix
@@ -71,8 +60,10 @@
 		display inline-block
 		position relative
 		color $text-color
+		font-size 1.6rem
 		letter-spacing 0.02em
-		margin 0 0 0.1em
+		margin-top 0
+		margin-bottom 0.2em
 
 	&-place
 		color $text-color
@@ -90,6 +81,52 @@
 
 
 	&-date
+		color $c-main
+		margin-bottom 0.5em
+
+		&-day
+			font-weight bold
+
+		&.view-light
+			opacity 0.1
+
+	@media $break.s
+		&-link
+			&:hover
+				text-decoration none
+
+		&:before
+			content ''
+			display block
+			absolute left -2.7rem bottom 2.7rem
+			size 0.5rem
+			background-color $c-timeline
+			border-radius 50%
+
+		&:after
+			content ''
+			display block
+			absolute left -1.04rem bottom 2.4rem
+			size 2rem
+			transform rotate(45deg)
+			background-color $c-blank
+			border-bottom 1px $c-border solid
+			border-left @border-top
+
+		&:hover
+			z-index 10
+			box-shadow 0 0 10px #999
+
+		&:hover &
+			&-title
+				text-decoration underline
+				text-decoration-skip ink
+
+
+	&-box
+		display flex
+
+	&-date
 		float left
 		text-align center
 		margin-right 1.6rem
@@ -103,5 +140,3 @@
 			font-weight bold
 			line-height 0.8em
 
-		&.view-light
-			opacity 0.1

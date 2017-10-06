@@ -1,12 +1,16 @@
 $margin = 2px
 
 .label
-	text-align  center
 	display inline-block
 	background-color $c-blank
+	color $c-main
+	font-size 0.9rem
+	font-weight bold
+	text-align  center
 	margin $margin 0
 	padding 0.2em 0.6em
-	transition background-color 200ms, color 100ms
+	border 2px solid $c-border
+	transition background-color 300ms, color 300ms
 
 	@extend $box-shadow
 
@@ -14,12 +18,7 @@ $margin = 2px
 		margin-left ($margin * -1)
 		margin-right @margin-left
 
-	.view-color-second &
-		color $c-second
-
+	@media $break.s
 		&:hover
+			background-color $c-main
 			color $c-blank
-			background-color $c-second
-			text-decoration underline
-
-

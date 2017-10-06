@@ -2,7 +2,8 @@
 
 {block #content}
 
-<main class="yeah-7">
+<main class="yeah-12 yeah-s-8 events">
+	<h1 class="news-title title view-second view-section view-first"><i class="fa title-icon fa-calendar" aria-hidden="true"></i>Události</h1>
 	{if !empty($collected_events)}
 		{foreach $collected_events as $year => $months}
 			<div class="event-separator" n:if="!$iterator->isFirst()"><span>{$year}</span></div>
@@ -12,7 +13,7 @@
 					<div class="event-day">
 						<article n:class="event, $iterator->isFirst() ? view-first, $iterator->isLast() ? view-last" n:foreach="$events as $event">
 							<a class="event-link" href="{$event|wp_permalink}">
-								<figure class="event-thumb" {$event|background:s|noescape} n:if="has_post_thumbnail($event)"></figure>
+								{include components/image.latte post => $event, class => event-thumb}
 								<div class="event-box">
 									<div n:class="event-date, !$iterator->isFirst() ? view-light">
 										<span class="event-date-day">{$event|wp_meta:start|date:j}.</span>
@@ -24,7 +25,7 @@
 										<div class="event-tags">
 											<span class="event-tags-item">#přespání</span>
 											<span class="event-tags-item">#seminář</span>
-											<span class="event-tags-item">#srandabude</span>
+											<span class="event-tags-item">#srandabu#666de</span>
 										</div>
 									</div>
 								</div>
@@ -34,35 +35,40 @@
 				{/foreach}
 			{/foreach}
 		{/foreach}
+		<div class="next-wrapper">
+			<a href="#" class="next">Starší události<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+		</div>
 	{else}
 		<article class="empty-state">
 			<h1 class="title view-first">{php echo NO_EVENTS}</h1>
 		</article>
 	{/if}
 </main>
-<aside class="yeah-5 sidebar">
-	<section class="sidebar-section news view-color-first" n:if="!empty($news)">
-		<h1 class="news-title title view-second">Novinky</h1>
-		<article class="news-item new" n:foreach="$news as $new">
-			<figure class="new-thumb" {$new|background|noescape}></figure>
-			<a href="{$new|wp_permalink}" class="new-content">
-				<h1 class="new-title title view-third">{$new|wp_title}</h1>
-				<p class="new-date">{$new|wp_date:j}.&nbsp;{$new|wp_date:Y-m-d|czmonth}</p>
-			</a>
-		</article>
+<aside class="yeah-12 yeah-s-4 sidebar">
+	<section class="sidebar-section news" n:if="!empty($news)">
+		<h1 class="news-title title view-second view-section view-first"><i class="fa title-icon fa-newspaper-o" aria-hidden="true"></i>Novinky</h1>
+		<a href="{$new|wp_permalink}"  n:foreach="$news as $new">
+			<article n:class="'news-item', 'new', $iterator->isFirst() ? 'view-higher'" {if has_post_thumbnail($new)}{$new|background|noescape}{else}{$cover|background|noescape}{/if}>
+				<div class="new-content">
+					<h1 class="new-title title view-third">{$new|wp_title}</h1>
+					<p class="new-date">{$new|wp_date:j}.&nbsp;{$new|wp_date:Y-m-d|czmonth}</p>
+				</div>
+			</article>
+		</a>
 	</section>
-	<section class="sidebar-section units view-color-second" n:if="!empty($units)">
-		<h1 class="units-title title views-second">Seniorátní mládeže</h1>
+	<section class="sidebar-section units" n:if="!empty($units)">
+		<h1 class="units-title title views-second view-section"><i class="fa title-icon fa-map-signs" aria-hidden="true"></i>Seniorátní mládeže</h1>
 		<div class="label-container">
 			<a href="{$unit|wp_permalink}" class="units-item label" n:foreach="$units as $unit" n:ifcontent>{$unit|wp_title}</a>
 		</div>
 	</section>
-	<section class="sidebar-section links view-color-third" n:if="!empty($links)">
-		<h1 class="units-title title views-second">Odkazy</h1>
+	<section class="sidebar-section links" n:if="!empty($links)">
+		<h1 class="links-title title views-second view-section"><i class="fa title-icon fa-link" aria-hidden="true"></i>Odkazy</h1>
 		<div class="label-container">
-			<a href="{$link[link]}" class="links-item link" n:foreach="$links as $link" n:ifcontent>
-			<h1 class="link-title" n:ifcontent>{$link[name]}</h1>
-			<p class="link-text">{$link[description]}</p>
+			<a class="links-item link" href="{$link[link]}" taret="_blank" n:foreach="$links as $link" n:ifcontent>
+				<figure class="link-logo" {$link[logo][0]|background|noescape}></figure>
+				<h1 class="link-title" n:ifcontent>{$link[name]}</h1>
+				<p class="link-text">{$link[description]}</p>
 			</a>
 		</div>
 	</section>

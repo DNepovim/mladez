@@ -1,47 +1,40 @@
 .new
+	position relative
 	display flex
+	align-items flex-end
 	min-height 100px
 	margin 0 0 10px
+	height 7.5rem
 
 	@extend $box-shadow
+	@extend $background-image
 
-	&:hover &
-		&-title
-			color $c-blank
-			text-decoration underline
-
-		&-date
-			color $c-blank
-
-	&-thumb
-		flex 1
-		margin  0
-		background-color rgba(255, 255, 255, 0.4)
-
-		@extend $background-image
+	&.view-higher
+		height 12rem
 
 	&-content
-		flex 3
-		colot $c-first
-		position relative
-		background-color $c-blank
-		padding 0.7rem 1rem 1.7rem
-		transition background-color 100ms, color 200ms
+		padding 0.5rem
 
 	&-title
+		display inline
 		line-height 1.2em
 
 	&-date
-		absolute bottom 0.5rem right 1rem
-		font-size 0.8rem
-		color $text-color-light
+		absolute bottom 0.5rem right 0.5rem
+		font-size 0.6rem
 		margin 0
-		transition color 200ms
+		padding-right 0.2em
+		padding-left 0.2em
 
-	.view-color-first &
-		&-content
-			color $c-first
+	&-title
+	&-date
+		background-color $c-blank
+		transition background-color 300ms, color 300ms
 
-		&:hover .new
-			&-content
-				background-color $c-first
+	@media $break.s
+		&:hover &
+			&-title
+			&-date
+				background-color $c-main
+				color $c-blank
+

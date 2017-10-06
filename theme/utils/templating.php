@@ -69,7 +69,7 @@ MangoFilters::$set['czmonth'] = function($date) {
 MangoFilters::$set['background'] = function($id, $size = 'thumbanil') {
 	if (is_object($id)) {
 		$url = get_thumbnail_url($id->ID, $size);
-	} elseif (is_integer($id)) {
+	} else {
 		$url = get_image_url($id, $size);
 	}
 	return 'style="background-image: url(' . $url . ')"';

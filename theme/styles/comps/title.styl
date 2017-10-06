@@ -1,19 +1,35 @@
 .title
-	margin-top 0
-	margin-bottom @margin-top
+	color $text-color
 	letter-spacing 0.05em
 
 	&.view-main
 		font-size 2.5em
 
-	.view-color-first &
-		color $c-first
+	&.view-section
+		display flex
+		align-items center
+		white-space nowrap
+		font-weight normal
+		font-size 1.2rem
+		color $text-color-light
 
-	.view-color-second &
-		color $c-second
+		&:after
+			content ''
+			display block
+			size 100% 1px
+			margin-top 0.2em
+			margin-left 0.2em
+			background-color $c-border
 
-	.view-color-third &
-		color $c-third
+		&.view-first
+			margin-top 0
+			color alpha($c-blank, 0.6) !important
+
+			&:after
+				display none
+
+	&-icon
+		margin-right 0.5em
 
 	strong
 		display block

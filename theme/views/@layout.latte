@@ -51,14 +51,15 @@
 
 	{include components/cover.latte}
 
-
-	<div class="container">
+	<div class="container site-content">
 		<div class="row">
 
 			{block content}{/block}
 
 		</div>
 	</div>
+
+	{include components/footer.latte}
 
 	{block scripts}
 		{analytics()}

@@ -1,0 +1,29 @@
+.link
+	display block
+	margin-bottom 0.5rem
+
+	@extend $clearfix
+
+	&-logo
+		float left
+		size 2.5rem
+		background-position center center
+		background-size contain
+		background-repeat no-repeat
+		margin-right 0.5em
+		transition transform 300ms
+
+	&-title
+	&-text
+		margin 0
+		color $text-color
+		transition color 300ms
+
+	@media $break.s
+		&:hover &
+			&-logo
+				transform rotate(15deg)
+
+			&-title
+			&-text
+				color $c-main

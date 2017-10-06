@@ -2,6 +2,10 @@
 
 require __DIR__ . '/theme-init.php';
 
+$View->cover = get_option('theme_settings')['cover_image'][0];
+$View->units = get_posts(['post_type' => 'unit', 'numberposts' => -1, 'order' => 'ASC']);
+$View->links = meta(get_option('page_on_front'), 'links');
+
 define('NO_EVENTS', 'Nejsou žádné nadcházející akce');
 define('DAYS', ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota']);
 define('MONTHS', [1 => 'leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec']);
@@ -32,4 +36,15 @@ function get_collected_posts($post_type, $meta_key, $count_of_posts = -1) {
 	}
 
 	return $collected_posts;
+}
+
+function get_background($id, $meta_key = '', $size = 'thumbnail') {
+	if (is_object($id)) {
+		$image_url = get_thumbnail_url($id->ID, $size);
+	} elseif (empty($meta_key)) {
+		$image_url = get_image_url($id, $size);
+	} else {
+		$image_url = get_image_url(meta($id, $meta_key), $size);
+	}
+	return 'style="background-image: url(' . (string)$image_url . '")';
 }

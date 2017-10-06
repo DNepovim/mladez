@@ -1,11 +1,34 @@
-<footer class="copyright">
-	<div class="copyright-text">
-		{get_setting('custom_localized_settings_page', 'footer_copy')|replace:'{year}':date('Y')}
+<footer class="site-footer view-light">
+	<div class="container">
+		<div class="row">
+			<div class="yeah-12 yeah-s-3">
+				<p class="site-footer-title title views-second view-section">Navigace</h1>
+				{$navigations[main-nav][footer]|noescape}
+			</div>
+			<div class="yeah-12 yeah-s-3">
+				<p class="site-footer-title title views-second view-section">Seniorátní mládeže</h1>
+				<ul class="nav-list">
+					<li class="nav-list-item" n:foreach="$units as $unit">
+						<a href="{$unit|wp_permalink}" class="nav-list-link" n:ifcontent>{$unit|wp_title}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="yeah-12 yeah-s-3">
+				<p class="site-footer-title title views-second view-section">Odkazy</h1>
+				<ul class="nav-list">
+					<li class="nav-list-item"  n:foreach="$links as $link">
+						<a href="{$link[link]}" class="nav-list-link" target="_blank" n:ifcontent>{$link[name]}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="yeah-12 yeah-s-3">
+				<p class="site-footer-title title views-second view-section">Oddělení mládeže</h1>
+				<ul class="nav-list">
+					<li class="nav-list-item">
+						<a href="#" class="nav-list-link" target="_blank" n:ifcontent></a>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
-	<div class="copyright-text">
-		{get_setting('custom_localized_settings_page', 'footer_sponsor')}
-	</div>
-	<a class="copyright-link" href="https://www.mangoweb.cz">
-		{include shape.latte name => mangoweb}
-	</a>
 </footer>
