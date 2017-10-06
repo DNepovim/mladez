@@ -1,0 +1,6 @@
+{default $class = 'img'}
+{default $alt = ''}
+
+{var $id = $id ? $id : get_post_thumbnail_ID($post)}
+
+<img n:class="$class" src="{wp_get_attachment_image_src($id)|noescape}" srcset="{wp_get_attachment_image_srcset($id)|noescape}" sizes="{wp_get_attachment_image_srcset($id)|noescape}" alt="{$alt}" n:if="$id">

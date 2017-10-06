@@ -1,16 +1,37 @@
 .site-nav
-	margin 0 1rem
+	margin-left -0.8em
+	margin-right @margin-left
 	.menu-item
 		display inline-block
 
 		a
+			position relative
 			display block
-			color $c-fourth
-			padding 1em 0.8em
+			color $c-blank
+			padding 0 0.8em
 			transition color 200ms, background-color 100ms
 			border-bottom 4px solid transparent
-			transition border 200ms
+			transition color 300ms
+
+			&:after
+				content ''
+				display block
+				absolute top 50% left 0
+				transform translateY(-50%)
+				z-index -1
+				size 0 1em
+				background-color $c-blank
+				transition width 300ms
 
 			&:hover
 			.view-active &
-				border-bottom 4px solid $c-fourth
+				color $c-main
+				text-decoration none
+
+				&:after
+					width 100%
+
+	@media $break.s
+		.menu-item
+			a
+				padding 1em 0.8em

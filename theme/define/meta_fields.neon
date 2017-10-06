@@ -73,6 +73,10 @@ register:
 				clone: true
 				sort: true
 				fields:
+					logo:
+						name: Logo
+						type: image_advanced
+						max_file_uploads: 1
 					name:
 						name: Název
 						type: text
@@ -82,3 +86,12 @@ register:
 					link:
 						name: Odkaz
 						type: url
+
+	theme_settings:
+		title: Cover image
+		context: normal
+		settings_pages: theme_settings
+		fields:
+			cover_image:
+				type: image_advanced
+				max_file_uploads: 1

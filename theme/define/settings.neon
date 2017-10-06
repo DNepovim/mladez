@@ -1,0 +1,8 @@
+#
+# Requires MetaBox plugin: http://metabox.io/
+# and mb-settings-page (paid plugin, ask someone)
+#
+
+register:
+	theme_settings:
+		title: Vzhled
