@@ -10,7 +10,7 @@ register:
 			- event
 			- news
 
-	tags:
+	tag:
 		label: Štítky
 		post_types:
 			- event

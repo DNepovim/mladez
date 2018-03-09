@@ -5,8 +5,22 @@
 		line-height 1.2em
 
 		a
-			color $text-footer
+			position relative
+			display inline-block
+			color $text-color
 			font-size 0.8em
+			padding-bottom 0.1em
+			margin-bottom 0.1em
+
+			&:before
+				content ''
+				display block
+				absolute bottom 0 left 0
+				transform translateY(-50%)
+				size 0 1px
+				background-color $text-color
+				transition width 300ms
 
 			&:hover
-				color $c-blank
+				&:before
+					width 100%

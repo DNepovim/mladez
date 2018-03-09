@@ -1,24 +1,25 @@
-$margin = 2px
+$margin = 0.1em
 
 .label
+	position relative
 	display inline-block
-	background-color $c-blank
-	color $c-main
-	font-size 0.9rem
-	font-weight bold
+	color $text-color
 	text-align  center
-	margin $margin 0
-	padding 0.2em 0.6em
-	border 2px solid $c-border
-	transition background-color 300ms, color 300ms
-
-	@extend $box-shadow
+	margin $margin 1em $margin 0
 
 	&-container
 		margin-left ($margin * -1)
 		margin-right @margin-left
 
-	@media $break.s
-		&:hover
-			background-color $c-main
-			color $c-blank
+	&:before
+		content ''
+		display block
+		absolute bottom 0 left 0
+		transform translateY(-50%)
+		size 0 1px
+		background-color $text-color
+		transition width 300ms
+
+	&:hover
+		&:before
+			width 100%

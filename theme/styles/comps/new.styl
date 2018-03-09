@@ -5,8 +5,8 @@
 	min-height 100px
 	margin 0 0 10px
 	height 7.5rem
+	transition box-shadow 500ms
 
-	@extend $box-shadow
 	@extend $background-image
 
 	&.view-higher
@@ -17,6 +17,7 @@
 
 	&-title
 		display inline
+		font-weight normal
 		line-height 1.2em
 
 	&-date
@@ -29,12 +30,7 @@
 	&-title
 	&-date
 		background-color $c-blank
-		transition background-color 300ms, color 300ms
 
-	@media $break.s
-		&:hover &
-			&-title
-			&-date
-				background-color $c-main
-				color $c-blank
+	&:hover
+		box-shadow 0 0 10px gray
 

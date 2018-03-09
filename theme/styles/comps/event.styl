@@ -1,21 +1,24 @@
 .event
 	position relative
 	background-color $c-blank
-	border-top 1px $c-border solid
-	border-left @border-top
-	border-right @border-top
+	margin 0
+	border 1px solid $c-border
+	border-bottom none
+	padding 1rem 1.6rem
 	transition box-shadow 500ms
 
-	&.view-first
-		border-radius $radius $radius 0 0
-
 	&.view-last
-		border-radius 0 0 $radius $radius
-		border-bottom 1px $c-border solid
+		border-bottom 1px solid $c-border
+		margin-bottom 0.4em
+
+	&-content
+		padding-left 0.4rem
+
+	&-title
+		margin-left -0.4rem
 
 	&-day
 		margin 1rem 0
-		box-shadow 0 0 1px #aaa
 
 	&-separator
 		display flex
@@ -35,7 +38,7 @@
 
 	&-link
 		display block
-		padding 0.3rem
+		color $text-color
 
 	&-thumb
 		size 100% auto
@@ -48,19 +51,14 @@
 			width 100%
 			height auto
 
-	&-date
-		color $c-second
-
 	&-box
-		padding 1rem 1.6rem 0.3rem
-
 		@extend $clearfix
 
 	&-title
 		display inline-block
 		position relative
-		color $text-color
-		font-size 1.6rem
+		font-size 2.6rem
+		font-weight normal
 		letter-spacing 0.02em
 		margin-top 0
 		margin-bottom 0.2em
@@ -81,11 +79,7 @@
 
 
 	&-date
-		color $c-main
 		margin-bottom 0.5em
-
-		&-day
-			font-weight bold
 
 		&.view-light
 			opacity 0.1
@@ -95,48 +89,34 @@
 			&:hover
 				text-decoration none
 
-		&:before
-			content ''
-			display block
-			absolute left -2.7rem bottom 2.7rem
-			size 0.5rem
-			background-color $c-timeline
-			border-radius 50%
-
-		&:after
-			content ''
-			display block
-			absolute left -1.04rem bottom 2.4rem
-			size 2rem
-			transform rotate(45deg)
-			background-color $c-blank
-			border-bottom 1px $c-border solid
-			border-left @border-top
+		&.view-first
+			&:after
+				content ''
+				display block
+				absolute left -1.04rem bottom 2.4rem
+				size 2rem
+				transform rotate(45deg)
+				background-color $c-blank
+				border-bottom 1px $c-border solid
+				border-left @border-bottom
+				transition box-shadow 500ms
 
 		&:hover
-			z-index 10
-			box-shadow 0 0 10px #999
+			box-shadow 0 0 10px $c-border
 
-		&:hover &
-			&-title
-				text-decoration underline
-				text-decoration-skip ink
+		&-box
+			display flex
 
+		&-date
+			absolute left -6em
+			float left
+			text-align center
+			margin-right 1.6rem
+			transition color 300ms
 
-	&-box
-		display flex
-
-	&-date
-		float left
-		text-align center
-		margin-right 1.6rem
-		color $text-color
-		transition color 300ms
-
-		&-day
-			display block
-			color $c-main
-			font-size 2.5rem
-			font-weight bold
-			line-height 0.8em
+			&-day
+				display block
+				color gray
+				font-size 3.5rem
+				line-height 0.8em
 

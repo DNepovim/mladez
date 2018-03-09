@@ -4,16 +4,6 @@
 			<div class="yeah-12 yeah-s-3">
 				<p class="site-footer-title title views-second view-section">Navigace</h1>
 				{$navigations[main-nav][footer]|noescape}
-			</div>
-			<div class="yeah-12 yeah-s-3">
-				<p class="site-footer-title title views-second view-section">Seniorátní mládeže</h1>
-				<ul class="nav-list">
-					<li class="nav-list-item" n:foreach="$units as $unit">
-						<a href="{$unit|wp_permalink}" class="nav-list-link" n:ifcontent>{$unit|wp_title}</a>
-					</li>
-				</ul>
-			</div>
-			<div class="yeah-12 yeah-s-3">
 				<p class="site-footer-title title views-second view-section">Odkazy</h1>
 				<ul class="nav-list">
 					<li class="nav-list-item"  n:foreach="$links as $link">
@@ -21,7 +11,17 @@
 					</li>
 				</ul>
 			</div>
+			<div class="yeah-0 yeah-s-1"></div>
 			<div class="yeah-12 yeah-s-3">
+				<p class="site-footer-title title views-second view-section">Seniorátní mládeže</h1>
+				<ul class="nav-list view-collumns">
+					<li class="nav-list-item" n:foreach="$units as $unit">
+						<a href="{$unit|wp_permalink}" class="nav-list-link" n:ifcontent>{$unit|wp_title}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="yeah-0 yeah-s-1"></div>
+			<div class="yeah-12 yeah-s-4">
 				<p class="site-footer-title title views-second view-section">Oddělení mládeže</h1>
 				<ul class="nav-list">
 					<li class="nav-list-item">
